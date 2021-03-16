@@ -1,24 +1,51 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'
-Description: Lambda pipeline 
+Description: An AWS Serverless Specification template describing your function.
 Resources:
-  CDDemoLambda:
+  LF1:
     Type: 'AWS::Serverless::Function'
     Properties:
-      FunctionName: LFX
       Handler: lambda_function.lambda_handler
-      Runtime: python3.6
-      CodeUri: ./LambdaCode
-      Description: 'Lambda pipeline'
+      Runtime: python3.8
+      CodeUri: .
+      Description: ''
       MemorySize: 128
-      Timeout: 30
-      Role: 'arn:aws:iam::789012867246:role/service-role/codebuild-LambdaBuild-service-role'
+      Timeout: 15
+      Role: 'arn:aws:iam::789012867246:role/service-role/LF1-role-905768iv'
       Events:
-        getAZsAPI:
+        BucketEvent1:
+          Type: S3
+          Properties:
+            Bucket:
+              Ref: Bucket1
+            Events:
+              - 's3:ObjectCreated:Put'
+            Filter:
+              S3Key:
+                Rules:
+                  - Name: suffix
+                    Value: .jpg
+        Api1:
           Type: Api
           Properties:
-            Path: /getazs
-            Method: get
-      Environment:
-        Variables:
-          REGION: us-east-1
+            Path: /MyResource
+            Method: ANY
+  Bucket1:
+    Type: 'AWS::S3::Bucket'
+    
+  LF2:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: .
+      Description: ''
+      MemorySize: 128
+      Timeout: 15
+      Role: 'arn:aws:iam::789012867246:role/service-role/LF2-role-8x76cjt3'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /search
+            Method: GET
