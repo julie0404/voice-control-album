@@ -11,26 +11,6 @@ Resources:
       Description: ''
       MemorySize: 128
       Timeout: 15
-      Events:
-        BucketEvent1:
-          Type: S3
-          Properties:
-            Bucket:
-              Ref: Bucket1
-            Events:
-              - 's3:ObjectCreated:Put'
-            Filter:
-              S3Key:
-                Rules:
-                  - Name: suffix
-                    Value: .jpg
-        Api1:
-          Type: Api
-          Properties:
-            Path: /MyResource
-            Method: ANY
-  Bucket1:
-    Type: 'AWS::S3::Bucket'
     
   LF2:
     Type: 'AWS::Serverless::Function'
@@ -41,9 +21,4 @@ Resources:
       Description: ''
       MemorySize: 128
       Timeout: 15
-      Events:
-        Api1:
-          Type: Api
-          Properties:
-            Path: /search
-            Method: GET
+
