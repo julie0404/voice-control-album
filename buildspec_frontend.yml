@@ -7,7 +7,7 @@ phases:
   build:
     commands:
       - echo Build start on `Date`
-      - npm run build
+      - npm build
   
 artifacts:
   type: zip
