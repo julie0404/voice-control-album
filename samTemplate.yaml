@@ -1,8 +1,7 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'
 Description: An AWS Serverless Specification template describing your function.
-Configuration: 
-  Capabilities: CAPABILITY_IAM,CAPABILITY_AUTO_EXPAND
+
 Resources:
   LF1:
     Type: 'AWS::Serverless::Function'
@@ -13,6 +12,27 @@ Resources:
       Description: ''
       MemorySize: 128
       Timeout: 15
+      Role: 'arn:aws:iam::789012867246:role/service-role/LF1-role-905768iv'
+      Events:
+        BucketEvent1:
+          Type: S3
+          Properties:
+            Bucket:
+              Ref: Bucket1
+            Events:
+              - 's3:ObjectCreated:Put'
+            Filter:
+              S3Key:
+                Rules:
+                  - Name: suffix
+                    Value: .jpg
+        Api1:
+          Type: Api
+          Properties:
+            Path: /MyResource
+            Method: ANY
+  Bucket1:
+    Type: 'AWS::S3::Bucket'
     
   LF2:
     Type: 'AWS::Serverless::Function'
@@ -23,4 +43,12 @@ Resources:
       Description: ''
       MemorySize: 128
       Timeout: 15
+      Role: 'arn:aws:iam::789012867246:role/service-role/LF2-role-8x76cjt3'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /search
+            Method: GET
+
 
