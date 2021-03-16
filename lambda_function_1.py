@@ -14,6 +14,8 @@ import json
 import random
 import botocore
 
+##log
+
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 
