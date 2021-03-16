@@ -9,7 +9,4 @@ artifacts:
     - samTemplate.yaml
     - outputsamtemplate.yml
     
-comfiguration:
-   capabilities: 
-    - CAPABILITY_IAM
-    - CAPABILITY_AUTO_EXPAND
+sam deploy --template-file samTemplate.yaml --stack-name LambdaStack --capabilities CAPABILITY_IAM CAPABILITY_AUTO_EXPAND
