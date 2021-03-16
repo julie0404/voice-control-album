@@ -8,5 +8,4 @@ artifacts:
   files:
     - samTemplate.yaml
     - outputsamtemplate.yml
-    
-sam deploy --template-file samTemplate.yaml --stack-name LambdaStack --capabilities CAPABILITY_IAM CAPABILITY_AUTO_EXPAND
+
