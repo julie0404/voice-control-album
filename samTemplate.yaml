@@ -3,7 +3,7 @@ Transform: 'AWS::Serverless-2016-10-31'
 Description: An AWS Serverless Specification template describing your function.
 
 Resources:
-  LF1:
+  LF1pip:
     Type: 'AWS::Serverless::Function'
     Properties:
       Handler: lambda_function.lambda_handler
@@ -34,7 +34,7 @@ Resources:
   Bucket1:
     Type: 'AWS::S3::Bucket'
     
-  LF2:
+  LF2pip:
     Type: 'AWS::Serverless::Function'
     Properties:
       Handler: lambda_function.lambda_handler
