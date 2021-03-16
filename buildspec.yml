@@ -3,12 +3,13 @@ phases:
   install:
     commands:
       - aws cloudformation package --template-file samTemplate.yaml --s3-bucket lambda-tl3032 --output-template-file outputsamtemplate.yml 
-    comfiguration:
-      Capabilities: 
-        - CAPABILITY_IAM
-        - CAPABILITY_AUTO_EXPAND
 artifacts:
   type: zip
   files:
     - samTemplate.yaml
     - outputsamtemplate.yml
+    
+comfiguration:
+   capabilities: 
+    - CAPABILITY_IAM
+    - CAPABILITY_AUTO_EXPAND
