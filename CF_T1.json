@@ -126,7 +126,7 @@
       "Properties": {
         "DomainName": "albumes",
         "ElasticsearchClusterConfig": {
-          "InstanceType": "t3.small.elasticsearch"
+          "InstanceType": "m3.medium.elasticsearch"
         }
       }
     }
