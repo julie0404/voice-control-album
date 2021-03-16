@@ -11,7 +11,6 @@ Resources:
       Description: ''
       MemorySize: 128
       Timeout: 15
-      Role: 'arn:aws:iam::789012867246:role/service-role/LF1-role-905768iv'
       Events:
         BucketEvent1:
           Type: S3
@@ -42,7 +41,6 @@ Resources:
       Description: ''
       MemorySize: 128
       Timeout: 15
-      Role: 'arn:aws:iam::789012867246:role/service-role/LF2-role-8x76cjt3'
       Events:
         Api1:
           Type: Api
