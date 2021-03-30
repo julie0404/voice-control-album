@@ -28,6 +28,8 @@
           "Role": "arn:aws:iam::789012867246:role/service-role/LF1-role-905768iv",
           "Runtime": "python3.6",
           "FunctionName": "LF1cf"
+            
+            
         }
       },
       "LF2cf": {
@@ -38,6 +40,8 @@
             "S3Bucket": "lambda-tl3032",
             "S3Key": "lambda_function_2.py.zip"
           },
+            
+            
           "Description": "lambda fn created by cloudformation",
           "Tags": [
             {
